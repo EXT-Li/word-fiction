@@ -47,7 +47,7 @@
     app.innerHTML = `
       <section class="hero">
         <div>
-          <div class="eyebrow">VOCABULARY FICTION / 2026</div>
+          <div class="eyebrow">VOCABULARY FICTION</div>
           <h1>把单词，<em>读成</em><br>一段人生。</h1>
         </div>
         <div class="hero-lede">
