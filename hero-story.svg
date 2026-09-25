@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">打开单词书，走进故事</title>
+  <desc id="desc">一本打开的书延伸成一条通往故事世界的道路，沿途的英文单词化作剧情线索。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#10131a"/>
+      <stop offset=".54" stop-color="#17121a"/>
+      <stop offset="1" stop-color="#3a1d24"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fbf2e4"/>
+      <stop offset="1" stop-color="#cdbda7"/>
+    </linearGradient>
+    <linearGradient id="paperShade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff8eb" stop-opacity=".92"/>
+      <stop offset="1" stop-color="#b09b88" stop-opacity=".88"/>
+    </linearGradient>
+    <linearGradient id="road" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#d56e58"/>
+      <stop offset=".55" stop-color="#e89367"/>
+      <stop offset="1" stop-color="#f0c18a"/>
+    </linearGradient>
+    <filter id="softGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="22"/>
+    </filter>
+    <filter id="smallGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="7"/>
+    </filter>
+    <pattern id="grain" width="42" height="42" patternUnits="userSpaceOnUse">
+      <circle cx="5" cy="8" r=".8" fill="#fff4df" opacity=".08"/>
+      <circle cx="29" cy="25" r=".7" fill="#fff4df" opacity=".05"/>
+      <path d="M1 36l5-1M34 7l4 1" stroke="#fff4df" stroke-opacity=".04"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <ellipse cx="795" cy="318" rx="270" ry="290" fill="#c45c50" opacity=".15" filter="url(#softGlow)"/>
+  <path d="M0 705C196 612 283 659 411 589s254-169 386-139 215 137 403 74v376H0z" fill="#090b10" opacity=".73"/>
+  <path d="M0 744C196 651 306 703 420 627s224-154 352-140 238 125 428 63" fill="none" stroke="#d48564" stroke-opacity=".22" stroke-width="2"/>
+  <path d="M0 779C186 699 298 737 424 666s237-144 360-123 242 110 416 57" fill="none" stroke="#f0b07b" stroke-opacity=".12"/>
+  <rect width="1200" height="900" fill="url(#grain)"/>
+
+  <!-- The story world grows out of the open book. -->
+  <g opacity=".9">
+    <path d="M595 589C583 489 587 392 623 292c23-64 73-104 128-126" fill="none" stroke="#efaa76" stroke-opacity=".12" stroke-width="52" filter="url(#smallGlow)"/>
+    <path d="M595 589C583 489 587 392 623 292c23-64 73-104 128-126" fill="none" stroke="url(#road)" stroke-width="13" stroke-linecap="round"/>
+    <path d="M595 589C583 489 587 392 623 292c23-64 73-104 128-126" fill="none" stroke="#ffe3b1" stroke-opacity=".48" stroke-width="2" stroke-dasharray="2 13"/>
+  </g>
+
+  <!-- An arch suggests the next chapter without tying the image to one Unit. -->
+  <g transform="translate(696 121)">
+    <path d="M0 130V74C0 19 37-16 86-16s86 35 86 90v56" fill="none" stroke="#e7d1b1" stroke-opacity=".86" stroke-width="12"/>
+    <path d="M-18 132h208" stroke="#e8795f" stroke-opacity=".45" stroke-width="3"/>
+    <path d="M39 130V78c0-31 20-51 47-51s47 20 47 51v52" fill="#0b0e13" stroke="#e8795f" stroke-opacity=".38" stroke-width="2"/>
+    <circle cx="86" cy="42" r="28" fill="#f0b878" opacity=".34" filter="url(#smallGlow)"/>
+  </g>
+
+  <!-- Word clues become objects in the narrative. -->
+  <g transform="translate(836 266) rotate(8)">
+    <rect width="176" height="72" rx="2" fill="#171a21" stroke="#d9b77f" stroke-opacity=".64"/>
+    <path d="M15 17h29" stroke="#e8795f" stroke-width="3"/>
+    <text x="15" y="46" fill="#f7f0e5" font-family="Georgia, serif" font-size="23" letter-spacing="1">EVIDENCE</text>
+    <text x="15" y="61" fill="#a9a19a" font-family="Arial, sans-serif" font-size="9" letter-spacing="2">A CLUE IN THE STORY</text>
+  </g>
+  <g transform="translate(889 438) rotate(-7)">
+    <rect width="196" height="76" rx="2" fill="#252026" stroke="#e8795f" stroke-opacity=".72"/>
+    <path d="M15 18h39" stroke="#d9b77f" stroke-width="3"/>
+    <text x="15" y="48" fill="#f7f0e5" font-family="Georgia, serif" font-size="23" letter-spacing="1">PURSUE</text>
+    <text x="15" y="64" fill="#a9a19a" font-family="Arial, sans-serif" font-size="9" letter-spacing="2">CHOOSE THE NEXT PATH</text>
+  </g>
+  <g transform="translate(720 360) rotate(4)">
+    <rect width="155" height="62" rx="2" fill="#12161b" stroke="#f0b878" stroke-opacity=".48"/>
+    <text x="14" y="30" fill="#f7f0e5" font-family="Georgia, serif" font-size="19" letter-spacing="1">MEMORY</text>
+    <path d="M14 43h83" fill="none" stroke="#e8795f" stroke-opacity=".56"/>
+    <text x="14" y="55" fill="#a9a19a" font-family="Arial, sans-serif" font-size="8" letter-spacing="1.7">A WORD RETURNS</text>
+  </g>
+
+  <!-- Reader silhouette, placed on the route rather than in a classroom. -->
+  <g transform="translate(612 467)">
+    <circle cx="0" cy="-34" r="13" fill="#0b0d12" stroke="#f4dfc0" stroke-opacity=".72" stroke-width="2"/>
+    <path d="M-5-20l-12 53h35L7-20z" fill="#0b0d12" stroke="#f4dfc0" stroke-opacity=".67" stroke-width="2"/>
+    <path d="M-6 32l-18 42M9 32l17 42M-17 8l-25 24M19 8l21 12" fill="none" stroke="#0b0d12" stroke-width="8" stroke-linecap="round"/>
+    <path d="M-23 75h-18M26 75h18" stroke="#e8795f" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- Open book in the foreground. -->
+  <g transform="translate(0 20)">
+    <path d="M126 682c153-47 284-40 466 23 180-63 319-70 482-23l-14 109c-168-36-306-28-468 34-164-62-307-70-482-34z" fill="#080a0f" stroke="#e3cab0" stroke-opacity=".34" stroke-width="3"/>
+    <path d="M126 682c161-50 304-36 466 28v113c-161-62-303-67-482-32z" fill="url(#paper)"/>
+    <path d="M592 710c166-65 314-78 482-28l16 107c-180-40-319-28-498 34z" fill="url(#paperShade)"/>
+    <path d="M592 710v113" fill="none" stroke="#7c6659" stroke-opacity=".7" stroke-width="3"/>
+    <path d="M171 716c111-25 221-17 346 23M163 748c106-24 212-16 327 19M157 778c104-22 205-16 304 15" fill="none" stroke="#7c6659" stroke-opacity=".3" stroke-width="3"/>
+    <path d="M669 728c112-31 214-36 333-11M662 760c111-30 215-34 342-9M658 792c104-28 214-31 351-5" fill="none" stroke="#7c6659" stroke-opacity=".31" stroke-width="3"/>
+    <text x="185" y="696" fill="#9f3f3e" font-family="Arial, sans-serif" font-size="12" letter-spacing="3">CHAPTER / BEGIN</text>
+    <text x="659" y="704" fill="#9f3f3e" font-family="Arial, sans-serif" font-size="12" letter-spacing="3">THE NEXT WORD</text>
+    <path d="M491 809c35 7 68 17 101 29" fill="none" stroke="#e8795f" stroke-width="4" opacity=".72"/>
+  </g>
+
+  <g fill="#f0b878">
+    <circle cx="540" cy="365" r="3"/><circle cx="575" cy="309" r="2"/><circle cx="647" cy="248" r="3"/><circle cx="779" cy="190" r="2"/>
+  </g>
+  <path d="M48 80h110M48 80v110M1152 820h-110M1152 820V710" fill="none" stroke="#e8795f" stroke-opacity=".48" stroke-width="2"/>
+</svg>

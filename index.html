@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="把考研词汇放进一篇篇可以读下去的文字故事里。">
+  <title>词汇小说 · 考研版</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111217'/%3E%3Cpath d='M17 16h30v8H26v9h17v8H26v7h22v8H17z' fill='%23e8795f'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="返回首页">
+        <span class="brand-mark">词</span>
+        <span class="brand-copy"><strong>词汇小说</strong><small>考研版 / WORD FICTION</small></span>
+      </a>
+      <div class="topbar-actions">
+        <nav class="main-nav" aria-label="主导航">
+          <a href="#home">首页</a>
+          <a href="#category/required">必考词</a>
+          <a href="#category/basic">基础词</a>
+          <a href="#category/advanced">超纲词</a>
+        </nav>
+        <div class="theme-tools">
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-expanded="false" aria-controls="theme-panel">配色</button>
+          <section class="theme-panel" id="theme-panel" aria-label="自定义网站配色" hidden>
+            <div class="theme-panel-head"><div><span class="theme-kicker">PERSONAL PALETTE</span><strong>调整页面配色</strong></div><button class="theme-close" id="theme-close" type="button" aria-label="关闭配色设置">×</button></div>
+            <div class="theme-presets" aria-label="预设配色">
+              <button type="button" data-theme-preset="default"><span style="--swatch-a:#d9878d;--swatch-b:#fff8f1"></span>奶油玫瑰</button>
+              <button type="button" data-theme-preset="sage"><span style="--swatch-a:#8aa58d;--swatch-b:#f1f5ee"></span>鼠尾草纸页</button>
+              <button type="button" data-theme-preset="sky"><span style="--swatch-a:#8ba8c4;--swatch-b:#f2f5f8"></span>雾蓝故事</button>
+              <button type="button" data-theme-preset="coffee"><span style="--swatch-a:#b88668;--swatch-b:#f5ece3"></span>暖棕书房</button>
+            </div>
+            <div class="theme-fields">
+              <label>页面背景<input type="color" data-theme-color="bg" value="#fff8f1"></label>
+              <label>内容卡片<input type="color" data-theme-color="panel" value="#fffdf9"></label>
+              <label>主要文字<input type="color" data-theme-color="text" value="#3b2d31"></label>
+              <label>强调颜色<input type="color" data-theme-color="accent" value="#d9878d"></label>
+              <label>数字与提示<input type="color" data-theme-color="gold" value="#b8896b"></label>
+            </div>
+            <button class="theme-reset" type="button" data-theme-reset>恢复默认配色</button>
+          </section>
+        </div>
+      </div>
+    </header>
+    <main id="app" aria-live="polite"></main>
+    <footer class="site-footer">
+      <span>词汇小说 / 本地验收版</span>
+    </footer>
+  </div>
+  <script src="./data.js?v=20260924-advanced-progress-v4"></script>
+  <script src="./app-v2.js?v=20260924-hero-cover-v1"></script>
+</body>
+</html>
