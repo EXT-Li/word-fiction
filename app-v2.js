@@ -350,19 +350,30 @@
   function unitCard(unit, category) {
     const saved = progress()[progressKey(category, unit.id)];
     const active = readActiveSession(category, unit.id);
+    const activeChapter = active ? chapterFor(unit, active.index) : null;
     const status = active
-      ? "进行中 · " + Math.min(active.index + 1, unit.steps.length) + "/" + unit.steps.length
+      ? activeChapter
+        ? "第 " + activeChapter.number + " 章 · " + (active.index - activeChapter.start + 1) + "/" + activeChapter.count
+        : "进行中 · " + Math.min(active.index + 1, unit.steps.length) + "/" + unit.steps.length
       : saved ? "上次完成 · " + saved.score + "/" + saved.total : "尚未开始";
     const wordCount = unit.words ? unit.words.length : 0;
     const nodeCount = unit.steps ? unit.steps.length : wordCount;
+    const chapterNote = unit.chapterPlan ? " · " + unit.chapterPlan.length + " 章" : "";
     const href = category === "required" ? "#unit/" + unit.id : "#unit/" + category + "/" + unit.id;
     const cardLabel = isLetterGroup(category) ? "LETTER " + String(unit.id).toUpperCase() : "UNIT " + String(unit.id).padStart(2, "0");
     return '<a class="unit-card" href="' + href + '"><div><div class="unit-num">' +
       cardLabel + "</div><h3>" + esc(unit.title) +
       '</h3><div class="unit-theme">' + esc(unit.theme) +
       '</div></div><div class="unit-bottom"><span>' + wordCount + " 个词 · " +
-      nodeCount + ' 个连续选择</span><span class="unit-status ' + (saved ? "" : "pending") +
+      nodeCount + ' 个连续选择' + chapterNote + '</span><span class="unit-status ' + (saved ? "" : "pending") +
       '">' + esc(status) + "</span></div></a>";
+  }
+
+  function chapterFor(unit, index) {
+    if (!unit || !Array.isArray(unit.chapterPlan)) return null;
+    return unit.chapterPlan.find(function (chapter) {
+      return index >= chapter.start && index < chapter.end;
+    }) || unit.chapterPlan[unit.chapterPlan.length - 1];
   }
 
   function renderUnit(category, id, view) {
@@ -404,7 +415,11 @@
       esc(unit.subtitle) + '</h2><div class="story-opening">' + paragraphMarkup(unit.intro) + "</div>" +
       '<div class="story-spec"><span><strong>' + unit.words.length +
       "</strong> 个目标词</span><span><strong>" + unit.steps.length +
-      '</strong> 个连续选择</span><span>一个完整剧情</span></div>' +
+      '</strong> 个连续选择</span><span>' + (unit.chapterPlan ? unit.chapterPlan.length + ' 个连续章节' : '一个完整剧情') + '</span></div>' +
+      (unit.chapterPlan ? '<section class="chapter-roadmap"><div class="chapter-roadmap-head"><span>STORY ROUTE</span><strong>12 章 · 每章 62 个词</strong></div><div class="chapter-roadmap-list">' +
+        unit.chapterPlan.map(function (chapter) {
+          return '<div class="chapter-roadmap-item"><span>' + String(chapter.number).padStart(2, "0") + '</span><div><strong>' + esc(chapter.title) + '</strong><small>' + chapter.count + ' 个连续选择</small></div></div>';
+        }).join("") + '</div></section>' : '') +
       '<div class="story-actions"><button class="button primary" data-action="start">' +
       continueText +
       ' ↗</button><a class="button subtle" href="#category/' + category + '">返回目录</a></div></section>' +
@@ -432,6 +447,14 @@
     const step = unit.steps[currentSession.index];
     const selected = currentSession.answers[currentSession.index];
     const progressWidth = Math.round(((currentSession.index + 1) / unit.steps.length) * 100);
+    const chapter = chapterFor(unit, currentSession.index);
+    const chapterIndex = chapter ? currentSession.index - chapter.start + 1 : 0;
+    const chapterBar = chapter
+      ? '<div class="chapter-progress"><span>第 ' + chapter.number + ' 章 · ' + esc(chapter.title) + '</span><span>本章 ' + chapterIndex + ' / ' + chapter.count + ' · 总进度 ' + (currentSession.index + 1) + ' / ' + unit.steps.length + '</span></div>'
+      : '';
+    const chapterOpening = chapter && currentSession.index === chapter.start
+      ? '<div class="chapter-intro"><span>CHAPTER ' + String(chapter.number).padStart(2, "0") + '</span><h2>' + esc(chapter.title) + '</h2><p>' + esc(chapter.intro) + '</p></div>'
+      : '';
     const choices = step.options.map(function (word, optionIndex) {
       const selectedClass = selected === word ? " is-selected" : "";
       return '<button class="choice' + selectedClass + '" data-choice="' + esc(word) +
@@ -443,10 +466,10 @@
       ? '<button class="back-button" data-action="back">← 上一步</button>'
       : "";
 
-    return '<section class="story-panel reading-panel"><div class="progress-row"><span>' +
-      (currentSession.index + 1) + " / " + unit.steps.length +
+    return '<section class="story-panel reading-panel">' + chapterBar + '<div class="progress-row"><span>' +
+      (chapter ? "整体剧情进度" : (currentSession.index + 1) + " / " + unit.steps.length) +
       '</span></div><div class="progress-track"><div class="progress-fill" style="width:' +
-      progressWidth + '%"></div></div><div class="scene">' + esc(step.scene) +
+      progressWidth + '%"></div>' + chapterOpening + '<div class="scene">' + esc(step.scene) +
       '</div><div class="choice-grid" aria-label="剧情选择">' + choices + '</div><div class="play-footer">' +
       backButton + "</div></section>";
   }

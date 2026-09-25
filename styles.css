@@ -284,6 +284,12 @@ h1, h2, h3, p { margin: 0; }
 }
 .reading-panel { min-height: 450px; }
 .reading-panel .scene { margin-top: 34px; }
+.chapter-progress { display:flex; justify-content:space-between; gap:18px; color:var(--gold); font-size:11px; letter-spacing:.08em; margin-bottom:12px; }
+.chapter-progress span:last-child { color:var(--muted-2); text-align:right; }
+.chapter-intro { max-width:760px; margin:28px 0 8px; padding:18px 20px; border-left:2px solid var(--red); background:rgba(var(--red-rgb), .055); }
+.chapter-intro > span { color:var(--red); font-size:10px; letter-spacing:.18em; }
+.chapter-intro h2 { margin-top:7px; font-family:var(--serif); font-size:24px; font-weight:500; }
+.chapter-intro p { margin-top:8px; color:var(--muted); font-size:13px; line-height:1.9; }
 .choice-grid { margin-top: 30px; }
 .play-footer {
   min-height: 31px;
@@ -303,4 +309,19 @@ h1, h2, h3, p { margin: 0; }
   outline: none;
 }
 .unit-bottom { gap: 16px; }
+.chapter-roadmap { margin-top:30px; padding-top:22px; border-top:1px solid var(--line); max-width:760px; }
+.chapter-roadmap-head { display:flex; align-items:baseline; justify-content:space-between; gap:18px; color:var(--red); font-size:10px; letter-spacing:.18em; }
+.chapter-roadmap-head strong { color:var(--muted); font-size:12px; font-weight:400; letter-spacing:0; }
+.chapter-roadmap-list { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:0 24px; margin-top:12px; }
+.chapter-roadmap-item { display:flex; gap:12px; align-items:baseline; padding:12px 0; border-bottom:1px solid var(--line); }
+.chapter-roadmap-item > span { color:var(--gold); font-family:var(--serif); font-size:17px; }
+.chapter-roadmap-item div { display:grid; gap:3px; min-width:0; }
+.chapter-roadmap-item strong { font-family:var(--serif); font-size:16px; font-weight:500; }
+.chapter-roadmap-item small { color:var(--muted-2); font-size:11px; }
+
+@media (max-width: 700px) {
+  .chapter-progress { display:block; line-height:1.8; }
+  .chapter-progress span:last-child { display:block; text-align:left; }
+  .chapter-roadmap-list { grid-template-columns:1fr; }
+}
 .unit-bottom span:first-child { color: var(--muted); }
