@@ -418,7 +418,7 @@
       '</strong> 个连续选择</span><span>' + (unit.chapterPlan ? unit.chapterPlan.length + ' 个连续章节' : '一个完整剧情') + '</span></div>' +
       (unit.chapterPlan ? '<section class="chapter-roadmap"><div class="chapter-roadmap-head"><span>STORY ROUTE</span><strong>12 章 · 每章 62 个词</strong></div><div class="chapter-roadmap-list">' +
         unit.chapterPlan.map(function (chapter) {
-          return '<div class="chapter-roadmap-item"><span>' + String(chapter.number).padStart(2, "0") + '</span><div><strong>' + esc(chapter.title) + '</strong><small>' + chapter.count + ' 个连续选择</small></div></div>';
+          return '<button type="button" class="chapter-roadmap-item" data-action="chapter" data-chapter="' + chapter.number + '" aria-label="进入第 ' + chapter.number + ' 章：' + esc(chapter.title) + '"><span>' + String(chapter.number).padStart(2, "0") + '</span><div><strong>' + esc(chapter.title) + '</strong><small>' + chapter.count + ' 个连续选择</small></div></button>';
         }).join("") + '</div></section>' : '') +
       '<div class="story-actions"><button class="button primary" data-action="start">' +
       continueText +
@@ -503,6 +503,21 @@
         const introHash = category === "required" ? "#unit/" + unit.id + "/intro" : "#unit/" + category + "/" + unit.id + "/intro";
         if (location.hash === introHash) render();
         else location.hash = introHash;
+      });
+    });
+
+    document.querySelectorAll("[data-action='chapter']").forEach(function (button) {
+      button.addEventListener("click", function () {
+        const chapterNumber = Number(button.dataset.chapter);
+        const chapter = (unit.chapterPlan || []).find(function (item) {
+          return item.number === chapterNumber;
+        });
+        if (!chapter) return;
+        const stored = readActiveSession(category, unit.id);
+        const answers = stored && Array.isArray(stored.answers) ? stored.answers.slice() : [];
+        session = { category: category, unitId: unit.id, index: chapter.start, answers: answers };
+        persistSession();
+        render();
       });
     });
 

@@ -313,7 +313,8 @@ h1, h2, h3, p { margin: 0; }
 .chapter-roadmap-head { display:flex; align-items:baseline; justify-content:space-between; gap:18px; color:var(--red); font-size:10px; letter-spacing:.18em; }
 .chapter-roadmap-head strong { color:var(--muted); font-size:12px; font-weight:400; letter-spacing:0; }
 .chapter-roadmap-list { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:0 24px; margin-top:12px; }
-.chapter-roadmap-item { display:flex; gap:12px; align-items:baseline; padding:12px 0; border-bottom:1px solid var(--line); }
+.chapter-roadmap-item { display:flex; gap:12px; align-items:baseline; width:100%; padding:12px 0; border:0; border-bottom:1px solid var(--line); background:transparent; color:var(--text); text-align:left; cursor:pointer; font:inherit; transition:color .2s ease, transform .2s ease, background .2s ease; }
+.chapter-roadmap-item:hover, .chapter-roadmap-item:focus-visible { color:var(--red); transform:translateX(4px); outline:none; }
 .chapter-roadmap-item > span { color:var(--gold); font-family:var(--serif); font-size:17px; }
 .chapter-roadmap-item div { display:grid; gap:3px; min-width:0; }
 .chapter-roadmap-item strong { font-family:var(--serif); font-size:16px; font-weight:500; }
