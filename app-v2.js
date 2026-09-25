@@ -292,7 +292,7 @@
     }, 0);
     app.innerHTML = [
       '<section class="hero hero-cover-section">',
-      '<figure class="hero-cover"><img src="./assets/home-cover.png" alt="在小说里学单词的故事学习场景：人物、书本、单词卡片与城市生活交织在一起"><figcaption><span>VOCABULARY FICTION / 2026</span><span>让故事带你遇见更大的世界</span></figcaption></figure>',
+      '<figure class="hero-cover"><img src="./home-cover.png" alt="在小说里学单词的故事学习场景：人物、书本、单词卡片与城市生活交织在一起"><figcaption><span>VOCABULARY FICTION / 2026</span><span>让故事带你遇见更大的世界</span></figcaption></figure>',
       '<div class="hero-caption"><div class="hero-copy"><div class="eyebrow">STORY-BASED VOCABULARY</div>',
       '<h1>把单词，<em>读成</em><br>一段人生。</h1><p class="hero-note">每个词，都是故事里下一步要做的事。</p></div>',
       '<div class="hero-lede">这里不是单词表的终点，而是故事的入口。选择一个词库，再从一个 Unit 或字母组开始，让词义跟着剧情一起被记住。</div></div>',
